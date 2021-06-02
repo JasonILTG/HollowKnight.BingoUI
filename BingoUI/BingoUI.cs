@@ -202,6 +202,8 @@ namespace BingoUI
             ModHooks.Instance.SetPlayerBoolHook -= UpdateBoolCanvas;
             UnityEngine.SceneManagement.SceneManager.sceneLoaded -= PatchCornifer;
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= ResetGrubsFlag;
+            // Just in case someone disables the mod, loads a new save, then enables it again.
+            _grubsRandomized = null;
             On.UIManager.GoToPauseMenu -= OnPause;
             On.UIManager.UIClosePauseMenu -= OnUnpause;
             On.UIManager.ReturnToMainMenu -= OnUnpauseQuitGame;
